@@ -1,37 +1,85 @@
 <template>
   <div class="hello">
     <h1>{{ title }}</h1>
+    <h4 v-show="msg">{{ msg }}</h4>
     <table>
       <caption>recently jobs</caption>
       <tr class="titles">
         <td>title</td>
-        <td>decription</td>
         <td>date</td>
+        <td>btn</td>
       </tr>
       <tr v-for="job of jobs">
-        <td>{{ job.title }}</td>
-        <td>{{ job.description }}</td>
-        <td>{{ job.date }}</td>
+        <router-link :to="{name:'single', params:{id:job._id}}">
+          <td>{{ job.title }}</td>
+        </router-link>
+          <td>{{ job.date }}</td>
+        <td><btn btnMsg="delete this job" model="button" :confirmation="true" style="danger" @btnActive="remove(job)" ></btn></td>
+        <td>
+
+        </td>        
       </tr>
     </table>
   </div>
 </template>
 
 <script>
+import Btn from './shared/Button.vue'
+import JobService from '../domain/JobService'
+
 export default {
+  components: {
+    'btn': Btn
+  },
   name: 'HelloWorld',
   data () {
     return {
       title: 'jobs',
-      jobs: []
+      jobs: [],
+      msg: ''
     }
   },
   created () {
-    this.$http.get('http://localhost:3636/jobs')
-      .then(res => res.json())
-      .then(function (jobs) {
+  //  this.$http.get('jobs')
+  //    .then(res => res.json())
+  //    .then((job, err) => {
+  //      if (err) {
+  //        console.log(err)
+  //      }
+  //      this.jobs = job
+  //    })
+    this.service = new JobService(this.$resource)
+    this.service
+      .list()
+      .then((jobs, err) => {
+        if (err) {
+          this.msg = err.message
+        }
         this.jobs = jobs
-      }, err => console.log(err))
+      })
+  },
+  methods: {
+    remove (job) {
+    //  this.$http.delete(`jobs/${job._id}`)
+    //    .then((data, err) => {
+    //      if (err) {
+    //        console.log(err)
+    //        this.msg = 'fudeu'
+    //      }
+    //      let index = this.jobs.indexOf(job)
+    //      this.jobs.splice(index, 1)
+    //      this.msg = 'concluido !'
+    //   })
+      this.service.del(job._id)
+        .then((error, data) => {
+          if (error) {
+            this.msg = 'something went wrong'
+          }
+          let index = this.jobs.indexOf(job)
+          this.jobs.splice(index, 1)
+          this.msg = 'job removed'
+        })
+    }
   }
 }
 </script>
@@ -51,8 +99,8 @@ table {
   font-weight: bold;
 }
 td {
-  max-width: 20vw;
+  max-width: 40vw;
   overflow: hidden;
-  padding: 1vw;
+  padding: 1.5vw;
 }
 </style>

@@ -6,6 +6,8 @@ import router from './router'
 import VueResource from 'vue-resource'
 
 Vue.use(VueResource)
+Vue.http.options.root = 'http://localhost:3636'
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
