@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2 v-if ="job._id" class="centralizado">edit</h2>
+    <h2 v-if ="job._id" class="centralizado">{{ job.title }}</h2>
     <h2 v-else class="centralizado">add new</h2>
     <form @submit.prevent="add()">
       <div class="controle">
@@ -40,17 +40,13 @@ export default {
   },
   methods: {
     add () {
-      this.$validator
-        .validateAll()
-        .then(sucess => {
-          if (sucess) {
-            this.service
-              .post(this.job)
-              .then(() => {
-                if (this.id) this.$router.push({name: 'home'})
-                this.job = new Job()
-              }, err => console.log(err))
+      this.$http
+        .post('http://localhost:3636/jobs', this.job)
+        .then((sucess, err) => {
+          if (err) {
+            console.log(err)
           }
+          this.job = new Job()
         })
     }
   },
@@ -58,7 +54,7 @@ export default {
     this.service = new JobService(this.$resource)
     if (this.id) {
       this.service
-        .busca(this.id)
+        .find(this.id)
         .then((job, err) => {
           if (err) {
             console.log(err)

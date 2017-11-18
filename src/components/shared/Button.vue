@@ -10,7 +10,8 @@
         type: String
       },
       confirmation: Boolean,
-      model: String
+      model: String,
+      btnStyle: String
     },
     methods: {
       trigger () {
@@ -25,9 +26,9 @@
     },
     computed: {
       buttonStyle () {
-        if (this.estilo === 'default' || !this.estilo) return 'btn btn-default'
-        if (this.estilo === 'danger') return 'btn btn-danger'
-        if (this.estilo === 'add-new') return 'btn-add-new'
+        if (this.btnStyle === 'default' || !this.btnStyle) return 'btn btn-default'
+        if (this.btnStyle === 'danger') return 'btn btn-danger'
+        if (this.btnStyle === 'add-new') return 'btn btn-add-new'
       }
     }
   }
@@ -40,15 +41,14 @@
     border-radius: 1.8vh;
     border-style: none;
     margin: .3vw;
-    font-size: 1vw;
+    font-size: 2vw;
+    color: white;
   }
   .btn-danger {
     background: #E74C3C;
-    color: white;
   }
   .btn-default {
     background: #3EB95F;
-    color: white;
   }
   .btn-add-new {
     background: #000;
