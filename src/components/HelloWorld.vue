@@ -41,14 +41,6 @@ export default {
     }
   },
   created () {
-  //  this.$http.get('jobs')
-  //    .then(res => res.json())
-  //    .then((job, err) => {
-  //      if (err) {
-  //        console.log(err)
-  //      }
-  //      this.jobs = job
-  //    })
     this.service = new JobService(this.$resource)
     this.service
       .list()
@@ -61,16 +53,6 @@ export default {
   },
   methods: {
     remove (job) {
-    //  this.$http.delete(`jobs/${job._id}`)
-    //    .then((data, err) => {
-    //      if (err) {
-    //        console.log(err)
-    //        this.msg = 'fudeu'
-    //      }
-    //      let index = this.jobs.indexOf(job)
-    //      this.jobs.splice(index, 1)
-    //      this.msg = 'concluido !'
-    //   })
       this.service.del(job._id)
         .then((error, data) => {
           if (error) {
@@ -85,7 +67,6 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 h1, h2 {
   font-weight: normal;
@@ -103,5 +84,9 @@ td {
   max-width: 40vw;
   overflow: hidden;
   padding: 1.5vw;
+}
+
+tr:nth-child(2n+1) {
+  background-color: #eeeeee;
 }
 </style>
