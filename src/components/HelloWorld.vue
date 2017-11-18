@@ -14,7 +14,7 @@
         <router-link :to="{name:'single', params:{id:job._id}}">
           <td>{{ job.title }}</td>
         </router-link>
-          <td>{{ job.date }}</td>
+          <td>{{ job.date | formatDate }}</td>
         <td><btn btnMsg="delete" model="button" :confirmation="true" btnStyle="danger" @btnActive="remove(job)" ></btn></td>
         <router-link :to="{name:'edit', params:{id:job._id}}">
           <td><btn btnMsg="edit" model="button" :confirmation="false" btnStyle="add-new"></btn></td>
