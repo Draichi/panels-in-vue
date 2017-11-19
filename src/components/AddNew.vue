@@ -40,8 +40,8 @@ export default {
   },
   methods: {
     add () {
-      this.$http
-        .post('http://localhost:3636/jobs', this.job)
+      this.service
+        .addNew(this.job)
         .then((sucess, err) => {
           if (err) {
             console.log(err)

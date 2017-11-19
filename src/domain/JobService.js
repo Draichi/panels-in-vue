@@ -10,7 +10,7 @@ export default class JobService {
         throw new Error('Cannot get jobs')
       })
   }
-  post (job) {
+  addNew (job) {
     if (job._id) {
       return this._resource
         .update({id: job._id}, job)

@@ -1,9 +1,8 @@
 <template>
   <div class="hello">
-    <h1>{{ title }}</h1>
+    <h1>recently jobs</h1>
     <h4 v-show="msg">{{ msg }}</h4>
     <table>
-      <caption>recently jobs</caption>
       <tr class="titles">
         <td>title</td>
         <td>date</td>
@@ -35,7 +34,6 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      title: 'jobs',
       jobs: [],
       msg: ''
     }
@@ -68,17 +66,18 @@ export default {
 </script>
 
 <style scoped>
-h1, h2 {
-  font-weight: normal;
+h1 {
   text-transform: uppercase;
 }
 table {
   margin: 0 auto;
   font-size: 1.6rem;
+  padding-top: 5vh;
 }
 .titles {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: bold;
+  text-transform: capitalize;
 }
 td {
   max-width: 40vw;
@@ -86,7 +85,7 @@ td {
   padding: 1.5vw;
 }
 
-tr:nth-child(2n+1) {
+tr:nth-child(2n) {
   background-color: #eeeeee;
 }
 </style>
