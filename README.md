@@ -5,8 +5,28 @@
 
 > Panels in list with vue.js
 
-## Build Setup
+## Start API
+> On `api` folder
+```bash
+# install
+npm install
 
+# start database (if you are on linux)
+sudo service mongod start
+
+# start database (if you are on macOS)
+sudo mongod
+
+# start database (if you are on Windows as administrator)
+"C:\Program Files\MongoDB\Server\3.4\bin\mongod.exe"
+"C:\Program Files\MongoDB\Server\3.4\bin\mongo.exe"
+
+# start server
+npm start
+```
+
+## Build Setup
+> On `panels-in-vue` folder
 ``` bash
 # install dependencies
 npm install
