@@ -1,14 +1,14 @@
-# panels
+# Jobs website
 
 ![screenshot](usage.gif?raw=true "screenshot")
 
 
-> Panels in list with vue.js
+> A SPA project built with MEVN stack (mongoDB, express, vue and node).
 
 ## Start API
 > On `api` folder
 ```bash
-# install
+# install dependencies
 npm install
 
 # start database (if you are on linux)
@@ -21,7 +21,7 @@ sudo mongod
 "C:\Program Files\MongoDB\Server\3.4\bin\mongod.exe"
 "C:\Program Files\MongoDB\Server\3.4\bin\mongo.exe"
 
-# start server
+# serve at localhost:3636/jobs
 npm start
 ```
 
