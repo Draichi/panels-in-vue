@@ -1,5 +1,8 @@
 # panels
 
+![screenshot](usage.gif?raw=true "screenshot")
+
+
 > Panels in list with vue.js
 
 ## Build Setup
