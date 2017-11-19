@@ -4,7 +4,7 @@
     <h4 v-show="msg">{{ msg }}</h4>
     <table>
       <tr class="titles">
-        <td>title</td>
+        <td>jobs</td>
         <td>date</td>
         <td></td>
         <td></td>
@@ -20,6 +20,9 @@
         </router-link>
       </tr>
     </table>
+    <div class="post-btn">
+      <router-link :to="{name: 'New'}"><btn btnMsg="Post a Job" btnStyle="default" class="post-btn"/></router-link>
+    </div>
   </div>
 </template>
 
@@ -66,7 +69,7 @@ export default {
 </script>
 
 <style scoped>
-h1 {
+h1, h4 {
   text-transform: uppercase;
 }
 table {
@@ -87,5 +90,8 @@ td {
 
 tr:nth-child(2n) {
   background-color: #eeeeee;
+}
+.post-btn {
+  padding: 5vh;
 }
 </style>

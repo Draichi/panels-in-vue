@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <router-view/>
+    <transition name="page">   
+      <router-view/>
+    </transition>
   </div>
 </template>
 
@@ -18,5 +20,11 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.page-enter, .page-leave-active {
+  opacity: 0;
+}
+.page-enter-active, .page-leave-active {
+  transition: opacity .6s;
 }
 </style>

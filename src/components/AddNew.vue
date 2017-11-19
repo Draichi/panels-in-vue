@@ -1,22 +1,19 @@
 <template>
   <div>
-    <h2 v-if ="job._id" class="centralizado">{{ job.title }}</h2>
-    <h2 v-else class="centralizado">add new</h2>
+    <h2 v-if ="job._id" class="title">{{ job.title }}</h2>
+    <h2 v-else class="title">add new</h2>
     <form @submit.prevent="add()">
-      <div class="controle">
+      <div class="control">
         <label for="title">title</label>
         <input data-vv-rules="required|min:3|max:30" name="title" data-vv-as="title" id="title" autocomplete="off" v-model="job.title">
-          <!--<span v-show="errors.has('titulo')">
-            {{ errors.first('titulo') }}
-          </span>-->
       </div>
-      <div class="controle">
+      <div class="control">
         <label for="description">description</label>
         <textarea id="description" autocomplete="off" v-model="job.description"></textarea>
       </div>
-      <div class="centralizado">
-        <btn btnMsg="add" model="submit"/>
-        <router-link :to="{name: 'Home'}"><btn btnMsg="back"/></router-link>
+      <div>
+        <btn btnMsg="Add" model="submit" btnStyle="default"/>
+        <router-link :to="{name: 'Home'}"><btn btnMsg="Back" btnStyle="add-new"/></router-link>
       </div>
     </form>
   </div>
@@ -67,23 +64,32 @@ export default {
 </script>
 
 <style scoped>
-  .centralizado {
+  .title {
     text-align: center;
+    text-transform: uppercase;
   }
-  .controle {
+  .control {
     font-size: 1.2em;
-    margin-bottom: 20px;
+    margin-bottom: 5vh;
   }
-  .controle label {
+  .control label {
     display: block;
     font-weight: bold;
+    text-transform: capitalize;
   }
- .controle label + input, .controle textarea {
-    width: 100%;
+ .control label + input, .control textarea {
+    text-align: center; 
     font-size: inherit;
-    border-radius: 5px
+    width: 60vw;
+    padding: 2vh 2vh;
+    margin: 1vh 0;
+    box-sizing: border-box;
+    background-color: #eeeeee;
   }
-  .centralizado {
-    text-align: center;
+  .control textarea {
+    height: 30vh;
+  }
+  .control label + input:focus, textarea:focus {
+    background-color: initial;
   }
 </style>

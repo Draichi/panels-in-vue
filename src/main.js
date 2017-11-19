@@ -8,7 +8,7 @@ import moment from 'moment'
 
 Vue.filter('formatDate', function (value) {
   if (value) {
-    return moment(String(value)).format('MMMM Do YYYY, h:mm:ss a')
+    return moment(String(value)).format('MMMM Do YYYY')
   }
 })
 

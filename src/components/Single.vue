@@ -2,15 +2,22 @@
   <div class="hello">
     <h2>{{ job.title }}</h2>
     <p>{{ job.description }}</p>
+    <div class="btn">
+      <router-link :to="{name: 'Home'}"><btn btnMsg="Back" btnStyle="add-new"/></router-link>
+    </div>
   </div>
 </template>
 
 <script>
+import Button from './shared/Button.vue'
 import Job from '../domain/Job'
 import JobService from '../domain/JobService'
 
 export default {
   name: 'Single',
+  components: {
+    'btn': Button
+  },
   data () {
     return {
       job: new Job(),
@@ -35,21 +42,19 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
+.hello {
+  padding: 0 20vw;
+}
+h2 {
   font-weight: normal;
   text-transform: uppercase;
+  padding: 3vh;
+  font-size: 3vw;
 }
-table {
-  margin: 0 auto;
-  font-size: 1.6rem;
+p {
+  font-size: 1.5vw;
 }
-.titles {
-  font-size: 2.5rem;
-  font-weight: bold;
-}
-td {
-  max-width: 40vw;
-  overflow: hidden;
-  padding: 1.5vw;
+.btn {
+  margin: 10vh;
 }
 </style>
