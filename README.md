@@ -6,6 +6,7 @@
 > A SPA project built with MEVN stack (mongoDB, express, vue and node).
 
 ## Start API
+You'll need to have [MongoDB](https://docs.mongodb.com/manual/installation/) installed
 > On `api` folder
 ```bash
 # install dependencies
