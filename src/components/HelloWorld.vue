@@ -9,7 +9,7 @@
         <td></td>
         <td></td>
       </tr>
-      <tr v-for="job of jobs">
+      <tr v-for="job of jobs" :key="job.title">
         <router-link :to="{name:'single', params:{id:job._id}}">
           <td>{{ job.title }}</td>
         </router-link>
