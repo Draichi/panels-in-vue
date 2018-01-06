@@ -1,7 +1,9 @@
 # Jobs website
 
 ![screenshot](usage.gif?raw=true "screenshot")
-
+![science](https://forthebadge.com/images/badges/built-with-science.svg "science")
+![passing](https://img.shields.io/travis/rust-lang/rust.svg?maxAge=2592000 "passing")
+![node](https://img.shields.io/node/v/passport.svg?maxAge=2592000 "node")
 
 > A SPA project built with MEVN stack (mongoDB, express, vue and node).
 
